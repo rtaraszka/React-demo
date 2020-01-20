@@ -1,0 +1,11 @@
+.Project {
+    display: inline-block;
+    width: 280px;
+    height: auto;
+    margin: 24px 16px 24px 16px;
+    border: 1px solid #eeeeee;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 16px 16px 32px 16px;
+    text-align: center;
+    border-radius: 4px;
+}
