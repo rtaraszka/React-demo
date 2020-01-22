@@ -36,8 +36,9 @@ nameChangeHandler = (event) => {
 
   render() {
     return (
-      <div className="App">
+      <div className="App">r
         <h1>My react app demo project</h1>
+        <div>
         <Project 
           projectName={this.state.projects[0].projectName} 
           companyName={this.state.projects[0].companyName}
@@ -48,6 +49,8 @@ nameChangeHandler = (event) => {
         <Project 
           projectName={this.state.projects[2].projectName} 
           companyName={this.state.projects[2].companyName} />
+        </div>
+        
         <button onClick={this.handleState.bind(this, 'UXPin!!!')}>Click me</button>
       </div>
     );
