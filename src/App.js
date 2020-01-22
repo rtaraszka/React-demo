@@ -9,7 +9,8 @@ class App extends Component {
       { projectName: 'First project', companyName: 'UXPin' },
       { projectName: 'Second project', companyName: 'Vehiculum' },
       { projectName: 'Third project', companyName: 'ING' },
-    ]
+    ],
+    showProjects: false,
 };
 
 handleState  = (newName) => {
@@ -34,24 +35,39 @@ nameChangeHandler = (event) => {
   })
 };
 
+toggleProjectsHandler = () => {
+  const doesShow = this.state.showProjects
+  this.setState({showProjects: !doesShow})
+  console.log(this.state.showProjects)
+
+};
+
   render() {
-    return (
-      <div className="App">r
-        <h1>My react app demo project</h1>
+
+    let persons = null
+
+    if (this.state.showProjects === true) {
+      persons = (
         <div>
-        <Project 
-          projectName={this.state.projects[0].projectName} 
-          companyName={this.state.projects[0].companyName}
-          changed={this.nameChangeHandler}/>
-        <Project 
-          projectName={this.state.projects[1].projectName} 
-          companyName={this.state.projects[1].companyName} />
-        <Project 
-          projectName={this.state.projects[2].projectName} 
-          companyName={this.state.projects[2].companyName} />
+          <Project 
+            projectName={this.state.projects[0].projectName} 
+            companyName={this.state.projects[0].companyName}
+            changed={this.nameChangeHandler}/>
+          <Project 
+            projectName={this.state.projects[1].projectName} 
+            companyName={this.state.projects[1].companyName} />
+          <Project 
+            projectName={this.state.projects[2].projectName} 
+            companyName={this.state.projects[2].companyName} />
         </div>
-        
-        <button onClick={this.handleState.bind(this, 'UXPin!!!')}>Click me</button>
+      );
+    }
+
+    return (
+      <div className="App">
+        <h1>Hi, this is a demo project!</h1>
+        {persons}
+        <button onClick={this.toggleProjectsHandler}>Click me</button>
       </div>
     );
   }
