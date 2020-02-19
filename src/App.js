@@ -46,6 +46,13 @@ toggleProjectsHandler = () => {
 
   render() {
 
+    let style = {
+      backgroundColor: 'green',
+      color: 'white',
+      border:'1px solid black',
+      font: 'inherit',
+    }
+
     let projects = null
 
     if (this.state.showProjects === true) {
@@ -61,13 +68,28 @@ toggleProjectsHandler = () => {
           })}
         </div>
       );
+
+      style.backgroundColor = 'red';
+    }
+
+    let classes = [];
+    if (this.state.projects.length <= 2) {
+      classes.push('red')
+    }
+    else {
+      classes.push('bold')
     }
 
     return (
       <div className="App">
         <h1>Hi, this is a demo project!</h1>
+        <p className={classes}>Let's test it</p>
         {projects}
-        <button onClick={this.toggleProjectsHandler}>Click me</button>
+        <button 
+          onClick={this.toggleProjectsHandler}
+          style={style}>
+            Click me
+        </button>
       </div>
     );
   }
